@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Going to Sleep</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fdeaf2;
+}
+
+/* CAPA */
+.capa {
+    width: 100%;
+    height: 90vh;
+    background: url('capa1.png') center/contain no-repeat;
+    background-color: #fff;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #c86fa1;
+}
+
+/* BOTÕES */
+.botoes {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.instagram { background-color: #8a2be2; }
+.whatsapp { background-color: #90ee90; color: #000; }
+
+/* VITRINE */
+.vitrine {
+    padding: 40px 10%;
+}
+
+.vitrine h2 {
+    color: #b85d8e;
+}
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.add-btn {
+    background-color: #c86fa1;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+/* CARRINHO */
+.carrinho {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.carrinho h3 {
+    color: #c86fa1;
+}
+
+.total {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.finalizar {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #90ee90;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="capa"></div>
+
+<header>
+    <h1>Going to Sleep</h1>
+</header>
+
+<div class="botoes">
+    <a href="https://instagram.com/goingtosleeproupasdedormir" target="_blank" class="btn instagram">Instagram</a>
+</div>
+
+<section class="vitrine">
+<h2>Pijamas Lisos</h2>
+
+<div class="produtos">
+
+<div class="card">
+    <img src="pijamarosa_mulher_liso1.png">
+    <h3>Pijama Feminino Liso</h3>
+    <p>R$ 120,00</p>
+    <input type="number" min="1" value="1" id="qtd1">
+    <br>
+    <button class="add-btn" onclick="adicionar('Pijama Feminino Liso',120,'qtd1')">
+        Adicionar ao Carrinho
+    </button>
+</div>
+
+<div class="card">
+    <img src="pijamaazul_homem_liso1.png">
+    <h3>Pijama Masculino Liso</h3>
+    <p>R$ 109,00</p>
+    <input type="number" min="1" value="1" id="qtd2">
+    <br>
+    <button class="add-btn" onclick="adicionar('Pijama Masculino Liso',109,'qtd2')">
+        Adicionar ao Carrinho
+    </button>
+</div>
+
+</div>
+</section>
+
+<!-- CARRINHO -->
+<div class="carrinho">
+<h3>Seu Carrinho</h3>
+<div id="itens"></div>
+<div class="total">Total: R$ <span id="total">0</span></div>
+<button class="finalizar" onclick="finalizarPedido()">Finalizar no WhatsApp</button>
+</div>
+
+<script>
+
+let total = 0;
+let lista = [];
+
+function adicionar(nome, preco, qtdId){
+    let qtd = parseInt(document.getElementById(qtdId).value);
+    let subtotal = preco * qtd;
+
+    total += subtotal;
+    lista.push(qtd + "x " + nome);
+
+    document.getElementById("itens").innerHTML += 
+        "<p>" + qtd + "x " + nome + "</p>";
+
+    document.getElementById("total").innerText = total.toFixed(2);
+}
+
+function finalizarPedido(){
+    let mensagem = "Olá, gostaria de comprar:%0A%0A";
+    
+    lista.forEach(item => {
+        mensagem += item + "%0A";
+    });
+
+    mensagem += "%0ATotal: R$ " + total.toFixed(2);
+
+    window.open("https://wa.me/5592981232855?text=" + mensagem);
+}
+
+</script>
+
+</body>
+</html>
