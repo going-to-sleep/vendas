@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Going to Sleep</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fdeaf2; /* rosa suave */
+}
+
+/* ===== CAPA ===== */
+.capa {
+    width: 100%;
+    height: 100vh;
+    background: url('capa1.png') center/contain no-repeat;
+    background-color: #ffffff;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #c86fa1;
+    margin-bottom: 10px;
+}
+
+/* ===== BOTÕES ===== */
+.botoes {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.instagram {
+    background-color: #8a2be2; /* roxo */
+}
+
+.whatsapp {
+    background-color: #90ee90; /* verde light */
+    color: #000;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* ===== VITRINE ===== */
+.vitrine {
+    padding: 40px 10%;
+}
+
+.vitrine h2 {
+    color: #b85d8e;
+    margin-bottom: 20px;
+}
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.preco {
+    font-size: 18px;
+    color: #444;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f7c8dd;
+    margin-top: 40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="capa"></div>
+
+<header>
+    <h1>Going to Sleep</h1>
+</header>
+
+<div class="botoes">
+    <a href="https://instagram.com/goingtosleeproupasdedormir" target="_blank" class="btn instagram">
+        Instagram
+    </a>
+
+    <a href="https://wa.me/5592981232855" target="_blank" class="btn whatsapp">
+        WhatsApp
+    </a>
+</div>
+
+<section class="vitrine">
+
+    <h2>Pijamas Lisos</h2>
+
+    <div class="produtos">
+
+        <div class="card">
+            <img src="pijamarosa_mulher_liso1.png" alt="Pijama Feminino Liso">
+            <h3>Pijama Feminino Liso</h3>
+            <p class="preco">R$ 120,00</p>
+        </div>
+
+        <div class="card">
+            <img src="pijamaazul_homem_liso1.png" alt="Pijama Masculino Liso">
+            <h3>Pijama Masculino Liso</h3>
+            <p class="preco">R$ 109,00</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="vitrine">
+
+    <h2>Pijamas com Estampa</h2>
+
+    <div class="produtos">
+
+        <!-- ESPAÇO PARA VOCÊ ADICIONAR NOVAS IMAGENS -->
+
+        <!-- 
+        Modelo para adicionar novos produtos:
+
+        <div class="card">
+            <img src="nome-da-imagem.png" alt="Pijama Estampado">
+            <h3>Pijama Feminino Estampado</h3>
+            <p class="preco">R$ 129,00</p>
+        </div>
+        -->
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Going to Sleep - Todos os direitos reservados
+</footer>
+
+</body>
+</html>
