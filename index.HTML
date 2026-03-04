@@ -10,25 +10,23 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background: url('capa1.png') center center / cover no-repeat fixed;
     background-color: #fdeaf2;
 }
 
-/* CAPA */
-.capa {
-    width: 100%;
-    height: 90vh;
-    background: url('capa1.png') center/contain no-repeat;
-    background-color: #fff;
+/* SOBREPOSIÇÃO SUAVE */
+.overlay {
+    background-color: rgba(253, 234, 242, 0.95);
 }
 
 /* HEADER */
 header {
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px 10px 20px;
 }
 
 header h1 {
-    font-size: 32px;
+    font-size: 38px;
     color: #c86fa1;
 }
 
@@ -46,25 +44,36 @@ header h1 {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    cursor: pointer;
 }
 
 .instagram { background-color: #8a2be2; }
-.whatsapp { background-color: #90ee90; color: #000; }
+
+/* PUBLICIDADE */
+.publicidade {
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.publicidade video {
+    width: 80%;
+    border-radius: 15px;
+}
 
 /* VITRINE */
 .vitrine {
-    padding: 40px 10%;
+    padding: 40px 8%;
 }
 
 .vitrine h2 {
     color: #b85d8e;
+    text-align: center;
 }
 
 .produtos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 25px;
 }
 
 .card {
@@ -72,7 +81,7 @@ header h1 {
     border-radius: 15px;
     padding: 15px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .card img {
@@ -80,10 +89,9 @@ header h1 {
     border-radius: 10px;
 }
 
-input[type="number"] {
-    width: 60px;
+.card select, .card input {
+    margin: 8px 0;
     padding: 5px;
-    margin: 10px 0;
 }
 
 .add-btn {
@@ -93,6 +101,7 @@ input[type="number"] {
     border-radius: 10px;
     color: white;
     cursor: pointer;
+    font-weight: bold;
 }
 
 /* CARRINHO */
@@ -106,10 +115,6 @@ input[type="number"] {
     box-shadow: -3px 0 10px rgba(0,0,0,0.2);
     padding: 20px;
     overflow-y: auto;
-}
-
-.carrinho h3 {
-    color: #c86fa1;
 }
 
 .total {
@@ -131,8 +136,7 @@ input[type="number"] {
 </head>
 
 <body>
-
-<div class="capa"></div>
+<div class="overlay">
 
 <header>
     <h1>Going to Sleep</h1>
@@ -142,41 +146,81 @@ input[type="number"] {
     <a href="https://instagram.com/goingtosleeproupasdedormir" target="_blank" class="btn instagram">Instagram</a>
 </div>
 
+<!-- PUBLICIDADE -->
+<div class="publicidade">
+    <video controls autoplay muted loop>
+        <source src="videopijama1.mp4" type="video/mp4">
+    </video>
+</div>
+
 <section class="vitrine">
-<h2>Pijamas Lisos</h2>
+<h2>Nossa Coleção</h2>
 
 <div class="produtos">
 
-<div class="card">
-    <img src="pijamarosa_mulher_liso1.png">
-    <h3>Pijama Feminino Liso</h3>
-    <p>R$ 120,00</p>
-    <input type="number" min="1" value="1" id="qtd1">
-    <br>
-    <button class="add-btn" onclick="adicionar('Pijama Feminino Liso',120,'qtd1')">
-        Adicionar ao Carrinho
-    </button>
-</div>
+<!-- MASCULINOS -->
+<script>
+function criarProduto(nome, preco, imagem, id){
+    document.write(`
+    <div class="card">
+        <img src="${imagem}">
+        <h3>${nome}</h3>
+        <p>Lindo pijama ${nome.toLowerCase()}, 100% algodão, confortável, macio e perfeito para noites tranquilas.</p>
+        <p><strong>R$ ${preco.toFixed(2)}</strong></p>
 
-<div class="card">
-    <img src="pijamaazul_homem_liso1.png">
-    <h3>Pijama Masculino Liso</h3>
-    <p>R$ 109,00</p>
-    <input type="number" min="1" value="1" id="qtd2">
-    <br>
-    <button class="add-btn" onclick="adicionar('Pijama Masculino Liso',109,'qtd2')">
-        Adicionar ao Carrinho
-    </button>
-</div>
+        <select id="tam${id}">
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+            <option value="XG">XG</option>
+        </select>
+
+        <input type="number" min="1" max="10" value="1" id="qtd${id}">
+        <br>
+        <button class="add-btn" onclick="adicionar('${nome}',${preco},'tam${id}','qtd${id}')">
+            Comprar
+        </button>
+    </div>
+    `);
+}
+</script>
+
+<script>
+/* PREÇOS */
+let masc = 109.50;
+let femShort = 119.90;
+let femCalca = 139.50;
+
+/* LISTA PRODUTOS */
+criarProduto("Pijama Amarelo Masculino", masc, "pijamaamarelo_masculino1.png",1);
+criarProduto("Pijama Azul Masculino", masc, "pijamaazul_masculino2.png",2);
+criarProduto("Pijama Preto Masculino", masc, "pijamapreto_masculino1.png",3);
+criarProduto("Pijama Azul Masculino Liso", masc, "pijamaazul_homem_liso1.png",4);
+
+criarProduto("Pijama Rosa Feminino Short", femShort, "pijamarosa_short2.png",5);
+criarProduto("Pijama Rosa Feminino Short", femShort, "pijamarosa_short3.png",6);
+criarProduto("Pijama Rosa Feminino Short", femShort, "pijamarosa_short4.png",7);
+criarProduto("Pijama Salmão Feminino Short", femShort, "pijamasalmao_short1.png",8);
+
+criarProduto("Pijama Rosa Feminino Calça", femCalca, "pijamarosa_calca1.png",9);
+criarProduto("Pijama Rosa Feminino Liso", femCalca, "pijamarosa_mulher_liso1.png",10);
+criarProduto("Pijama Amarelo Feminino Short", femShort, "pijamaamarelo_short1.png",11);
+criarProduto("Pijama Amarelo Feminino Short", femShort, "pijamaamarelo_short2.png",12);
+criarProduto("Pijama Azul Feminino Short", femShort, "pijamaazul_short1.png",13);
+</script>
 
 </div>
 </section>
+
+</div>
 
 <!-- CARRINHO -->
 <div class="carrinho">
 <h3>Seu Carrinho</h3>
 <div id="itens"></div>
-<div class="total">Total: R$ <span id="total">0</span></div>
+<div class="total">Total: R$ <span id="total">0.00</span></div>
 <button class="finalizar" onclick="finalizarPedido()">Finalizar no WhatsApp</button>
 </div>
 
@@ -185,22 +229,34 @@ input[type="number"] {
 let total = 0;
 let lista = [];
 
-function adicionar(nome, preco, qtdId){
+function adicionar(nome, preco, tamId, qtdId){
+
     let qtd = parseInt(document.getElementById(qtdId).value);
+    if(qtd > 10){
+        alert("Limite máximo de 10 unidades por produto.");
+        return;
+    }
+
+    let tamanho = document.getElementById(tamId).value;
     let subtotal = preco * qtd;
-
     total += subtotal;
-    lista.push(qtd + "x " + nome);
 
-    document.getElementById("itens").innerHTML += 
-        "<p>" + qtd + "x " + nome + "</p>";
+    let item = `${qtd}x ${nome} - Tam ${tamanho}`;
+    lista.push(item);
 
+    document.getElementById("itens").innerHTML += `<p>${item}</p>`;
     document.getElementById("total").innerText = total.toFixed(2);
 }
 
 function finalizarPedido(){
+
+    if(lista.length == 0){
+        alert("Seu carrinho está vazio.");
+        return;
+    }
+
     let mensagem = "Olá, gostaria de comprar:%0A%0A";
-    
+
     lista.forEach(item => {
         mensagem += item + "%0A";
     });
