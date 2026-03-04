@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Going to Sleep</title>
 
-<!-- FONTE MODERNA -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
@@ -16,51 +15,76 @@ body{
     background: url('capa1.png') center center / cover no-repeat fixed;
 }
 
-/* FUNDO SUAVE */
+/* OVERLAY MAIS TRANSPARENTE PARA VER A CAPA */
 .overlay{
-    background: rgba(255,240,247,0.92);
+    background: rgba(255,240,247,0.75);
 }
 
 /* HEADER */
 header{
     text-align:center;
-    padding:60px 20px 20px;
+    padding:100px 20px 40px;
 }
 
+/* TÍTULO CALIGRAFIA PREMIUM */
 header h1{
-    font-size:48px;
-    background: linear-gradient(45deg,#ff1493,#ff69b4,#ff85c1);
+    font-family: 'Great Vibes', cursive;
+    font-size:110px;
+    position:relative;
+    display:inline-block;
+    background: linear-gradient(180deg,#ff008c,#ff4da6,#ff8fd1);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    font-weight:700;
+}
+
+/* EFEITO BRILHO PASSANDO */
+header h1::after{
+    content:"Going to Sleep";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.9) 50%, transparent 60%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation: brilho 4s infinite;
+}
+
+@keyframes brilho{
+    0%{transform:translateX(-100%);}
+    100%{transform:translateX(100%);}
 }
 
 /* TEXTO MARCA */
 .marca{
-    max-width:800px;
-    margin:0 auto 40px;
-    text-align:center;
-    font-size:16px;
-    color:#555;
-    line-height:1.6;
+    max-width:900px;
+    margin:0 auto 50px;
+    font-size:17px;
+    color:#444;
+    line-height:1.8;
 }
 
 /* BOTÕES */
 .btn{
     display:inline-block;
-    padding:12px 30px;
+    padding:12px 35px;
     border-radius:30px;
-    background:linear-gradient(45deg,#ff1493,#ff69b4);
+    background: linear-gradient(45deg,#ff008c,#ff4da6);
     color:#fff;
     text-decoration:none;
     font-weight:600;
-    margin-top:15px;
+    box-shadow:0 5px 15px rgba(255,0,140,0.4);
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
 }
 
 /* VIDEO */
 .publicidade{
     text-align:center;
-    margin:40px 0;
+    margin:50px 0;
 }
 .publicidade video{
     width:80%;
@@ -70,12 +94,13 @@ header h1{
 
 /* VITRINE */
 .vitrine{
-    padding:50px 8%;
+    padding:60px 8%;
 }
 .vitrine h2{
     text-align:center;
-    color:#ff1493;
-    margin-bottom:40px;
+    font-size:35px;
+    color:#ff008c;
+    margin-bottom:50px;
 }
 
 .produtos{
@@ -102,20 +127,26 @@ header h1{
 }
 
 .card h3{
-    color:#ff1493;
+    color:#ff008c;
 }
 
 .add-btn{
-    background:linear-gradient(45deg,#ff1493,#ff69b4);
+    background: linear-gradient(45deg,#ff008c,#ff4da6);
     border:none;
     padding:10px 20px;
     border-radius:20px;
     color:#fff;
     cursor:pointer;
     font-weight:600;
+    margin-top:10px;
 }
 
-/* CARRINHO DESLIZANTE */
+select,input{
+    margin-top:10px;
+    padding:6px;
+}
+
+/* CARRINHO */
 .carrinho{
     position:fixed;
     right:-320px;
@@ -137,7 +168,7 @@ header h1{
     position:fixed;
     right:0;
     top:50%;
-    background:#ff1493;
+    background:#ff008c;
     color:#fff;
     padding:12px;
     cursor:pointer;
@@ -159,20 +190,26 @@ header h1{
 
 /* MAPA */
 .mapa{
-    margin-top:60px;
+    margin-top:80px;
     text-align:center;
+}
+
+.mapa h2{
+    font-family:'Great Vibes', cursive;
+    font-size:55px;
+    color:#ff008c;
 }
 
 iframe{
     width:90%;
-    height:300px;
+    height:350px;
     border-radius:20px;
     border:none;
 }
 
 footer{
     text-align:center;
-    padding:30px;
+    padding:40px;
     color:#555;
 }
 
@@ -185,9 +222,9 @@ footer{
 <header>
     <h1>Going to Sleep</h1>
     <div class="marca">
-        Going to Sleep é uma loja especializada em roupas de dormir desenvolvidas para proporcionar máximo conforto e qualidade de vida. 
-        Nossos pijamas são feitos em 100% algodão, pensados para garantir um sono profundo, leve e sem interferências das vestimentas. 
-        Além de perfeitos para dormir, também são ideais para usar dentro de casa, unindo estilo, maciez e preço acessível. 
+        Going to Sleep é uma loja especializada em roupas de dormir desenvolvidas para proporcionar máximo conforto e qualidade de vida.
+        Nossos pijamas são feitos em 100% algodão, pensados para garantir um sono profundo, leve e sem interferências das vestimentas.
+        Além de perfeitos para dormir, também são ideais para usar dentro de casa, unindo estilo, maciez e preço acessível.
         Trabalhamos com tamanhos para todas as idades e gostos, sempre priorizando conforto, elegância e bem-estar.
     </div>
 
@@ -204,14 +241,16 @@ footer{
 <h2>Feminino</h2>
 <div class="produtos" id="femininos"></div>
 
-<h2 style="margin-top:60px;">Masculino</h2>
+<h2 style="margin-top:80px;">Masculino</h2>
 <div class="produtos" id="masculinos"></div>
 </section>
 
 <div class="mapa">
-    <h2 style="color:#ff1493;">Nosso Endereço</h2>
-    <p>Av. Efigênio Sales 2240, Centro Comercial Mundi</p>
-    <iframe src="https://share.google/n9GB9DgEo1uRGeTk6"></iframe>
+    <h2>Nosso Endereço</h2>
+    <p><strong>Av. Efigênio Sales 2240, Centro Comercial Mundi</strong></p>
+    <iframe src="https://www.google.com/maps?q=Av.+Efigênio+Sales+2240,+Centro+Comercial+Mundi&output=embed"></iframe>
+    <br><br>
+    <a href="https://maps.app.goo.gl/ZbegsTnqeEU6DqQN7" target="_blank" class="btn">Ver no Google Maps</a>
 </div>
 
 <footer>
@@ -247,7 +286,7 @@ container.innerHTML += `
 <option>G</option><option>GG</option><option>XG</option>
 </select>
 <input type="number" min="1" max="10" value="1" id="qtd${nome}">
-<br><br>
+<br>
 <button class="add-btn" onclick="adicionar('${nome}',${preco})">Comprar</button>
 </div>`;
 }
