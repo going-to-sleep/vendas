@@ -9,208 +9,164 @@
 
 <style>
 
-body{
-    margin:0;
-    font-family:'Poppins', sans-serif;
-    background: url('capa1.png') center center / cover no-repeat fixed;
+/* PALETA SONO */
+:root{
+--cinza:#eef1f4;
+--azul:#3f6ea8;
+--azul-claro:#6f95c9;
+--amarelo:#f4d77b;
+--rosa-bebe:#f8e9ef;
+--branco:#ffffff;
 }
 
-/* OVERLAY MAIS TRANSPARENTE PARA VER A CAPA */
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background:var(--cinza);
+}
+
 .overlay{
-    background: rgba(255,240,247,0.75);
+background:linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(238,241,244,0.95));
 }
 
 /* HEADER */
 header{
-    text-align:center;
-    padding:100px 20px 40px;
+text-align:center;
+padding:100px 20px 40px;
 }
 
-/* TÍTULO CALIGRAFIA PREMIUM */
+/* TÍTULO AZUL COM SOMBRA */
 header h1{
-    font-family: 'Great Vibes', cursive;
-    font-size:110px;
-    position:relative;
-    display:inline-block;
-    background: linear-gradient(180deg,#ff008c,#ff4da6,#ff8fd1);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+font-family:'Great Vibes', cursive;
+font-size:110px;
+color:var(--azul);
+text-shadow: 3px 3px 10px rgba(63,110,168,0.4);
 }
 
-/* EFEITO BRILHO PASSANDO */
-header h1::after{
-    content:"Going to Sleep";
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.9) 50%, transparent 60%);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation: brilho 4s infinite;
-}
-
-@keyframes brilho{
-    0%{transform:translateX(-100%);}
-    100%{transform:translateX(100%);}
-}
-
-/* TEXTO MARCA */
+/* TEXTO POÉTICO */
 .marca{
-    max-width:900px;
-    margin:0 auto 50px;
-    font-size:17px;
-    color:#444;
-    line-height:1.8;
+max-width:800px;
+margin:0 auto 50px;
+font-size:18px;
+color:#555;
+line-height:1.9;
+background:var(--rosa-bebe);
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 /* BOTÕES */
 .btn{
-    display:inline-block;
-    padding:12px 35px;
-    border-radius:30px;
-    background: linear-gradient(45deg,#ff008c,#ff4da6);
-    color:#fff;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow:0 5px 15px rgba(255,0,140,0.4);
-    transition:0.3s;
+display:inline-block;
+padding:12px 35px;
+border-radius:30px;
+background:var(--azul);
+color:#fff;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
 }
 
 .btn:hover{
-    transform:scale(1.05);
-}
-
-/* VIDEO */
-.publicidade{
-    text-align:center;
-    margin:50px 0;
-}
-.publicidade video{
-    width:80%;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+background:var(--azul-claro);
 }
 
 /* VITRINE */
 .vitrine{
-    padding:60px 8%;
+padding:60px 8%;
 }
+
 .vitrine h2{
-    text-align:center;
-    font-size:35px;
-    color:#ff008c;
-    margin-bottom:50px;
+text-align:center;
+font-size:35px;
+color:var(--azul);
+margin-bottom:50px;
 }
 
 .produtos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:35px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
 }
 
 .card{
-    background:rgba(255,255,255,0.95);
-    border-radius:20px;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(255,20,147,0.15);
-    transition:0.3s;
-}
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card img{
-    width:100%;
-    border-radius:15px;
+background:var(--branco);
+border-radius:20px;
+padding:20px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
 .card h3{
-    color:#ff008c;
+color:var(--azul);
+}
+
+.card strong{
+color:var(--amarelo);
 }
 
 .add-btn{
-    background: linear-gradient(45deg,#ff008c,#ff4da6);
-    border:none;
-    padding:10px 20px;
-    border-radius:20px;
-    color:#fff;
-    cursor:pointer;
-    font-weight:600;
-    margin-top:10px;
+background:var(--azul);
+border:none;
+padding:10px 20px;
+border-radius:20px;
+color:#fff;
+cursor:pointer;
+font-weight:600;
+margin-top:10px;
 }
 
-select,input{
-    margin-top:10px;
-    padding:6px;
+.add-btn:hover{
+background:var(--azul-claro);
 }
 
 /* CARRINHO */
 .carrinho{
-    position:fixed;
-    right:-320px;
-    top:0;
-    width:300px;
-    height:100%;
-    background:#fff;
-    box-shadow:-5px 0 20px rgba(0,0,0,0.2);
-    padding:20px;
-    transition:0.4s;
-    z-index:999;
+position:fixed;
+right:-340px;
+top:0;
+width:320px;
+height:100%;
+background:#fff;
+box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+padding:20px;
+transition:0.4s;
 }
 
 .carrinho.aberto{
-    right:0;
+right:0;
 }
 
 .toggle-carrinho{
-    position:fixed;
-    right:0;
-    top:50%;
-    background:#ff008c;
-    color:#fff;
-    padding:12px;
-    cursor:pointer;
-    border-radius:10px 0 0 10px;
-    font-weight:600;
-    z-index:1000;
+position:fixed;
+right:0;
+top:50%;
+background:var(--azul);
+color:#fff;
+padding:12px;
+cursor:pointer;
+border-radius:10px 0 0 10px;
+font-weight:600;
 }
 
 .finalizar{
-    width:100%;
-    padding:12px;
-    background:#25d366;
-    border:none;
-    color:#fff;
-    font-weight:600;
-    margin-top:20px;
-    cursor:pointer;
+width:100%;
+padding:12px;
+background:#25d366;
+border:none;
+color:#fff;
+font-weight:600;
+margin-top:20px;
+cursor:pointer;
+border-radius:10px;
 }
 
-/* MAPA */
-.mapa{
-    margin-top:80px;
-    text-align:center;
-}
-
-.mapa h2{
-    font-family:'Great Vibes', cursive;
-    font-size:55px;
-    color:#ff008c;
-}
-
-iframe{
-    width:90%;
-    height:350px;
-    border-radius:20px;
-    border:none;
-}
-
+/* FOOTER */
 footer{
-    text-align:center;
-    padding:40px;
-    color:#555;
+text-align:center;
+padding:40px;
+color:#777;
 }
 
 </style>
@@ -220,22 +176,21 @@ footer{
 <div class="overlay">
 
 <header>
-    <h1>Going to Sleep</h1>
-    <div class="marca">
-        Going to Sleep é uma loja especializada em roupas de dormir desenvolvidas para proporcionar máximo conforto e qualidade de vida.
-        Nossos pijamas são feitos em 100% algodão, pensados para garantir um sono profundo, leve e sem interferências das vestimentas.
-        Além de perfeitos para dormir, também são ideais para usar dentro de casa, unindo estilo, maciez e preço acessível.
-        Trabalhamos com tamanhos para todas as idades e gostos, sempre priorizando conforto, elegância e bem-estar.
-    </div>
+<h1>Going to Sleep</h1>
 
-    <a href="https://instagram.com/goingtosleeproupasdedormir" target="_blank" class="btn">Instagram</a>
-</header>
-
-<div class="publicidade">
-    <video controls autoplay muted loop>
-        <source src="videopijama1.mp4" type="video/mp4">
-    </video>
+<div class="marca">
+Quando a noite chegar, reflita,<br>
+Agradeça a Deus por mais um dia.<br>
+Jogue fora a tristeza, leve para amanhã as alegrias.<br><br>
+Tome um banho quente, se esconda embaixo do edredom.<br>
+Abrace o travesseiro, pule na cama!<br>
+Durma só de Going to Sleep e dê outro a quem te ama.<br><br>
+<strong>Bons Sonhos 💙</strong>
 </div>
+
+<a href="https://instagram.com/goingtosleeproupasdedormir" target="_blank" class="btn">Instagram</a>
+
+</header>
 
 <section class="vitrine">
 <h2>Feminino</h2>
@@ -245,16 +200,8 @@ footer{
 <div class="produtos" id="masculinos"></div>
 </section>
 
-<div class="mapa">
-    <h2>Nosso Endereço</h2>
-    <p><strong>Av. Efigênio Sales 2240, Centro Comercial Mundi</strong></p>
-    <iframe src="https://www.google.com/maps?q=Av.+Efigênio+Sales+2240,+Centro+Comercial+Mundi&output=embed"></iframe>
-    <br><br>
-    <a href="https://maps.app.goo.gl/ZbegsTnqeEU6DqQN7" target="_blank" class="btn">Ver no Google Maps</a>
-</div>
-
 <footer>
-    © 2026 Going to Sleep - Conforto que abraça seu sono.
+© 2026 Going to Sleep - Conforto que abraça seu sono.
 </footer>
 
 </div>
@@ -270,36 +217,33 @@ footer{
 
 <script>
 
-let masc = 109.50;
-let femShort = 119.90;
-let femCalca = 139.50;
+let masc=109.50;
+let femShort=119.90;
+let femCalca=139.50;
 
 function criarProduto(container,nome,preco,img){
-container.innerHTML += `
+container.innerHTML+=`
 <div class="card">
-<img src="${img}">
+<img src="${img}" width="100%">
 <h3>${nome}</h3>
-<p>Lindo pijama ${nome.toLowerCase()}, 100% algodão, confortável e perfeito para noites tranquilas.</p>
 <p><strong>R$ ${preco.toFixed(2)}</strong></p>
 <select id="tam${nome}">
 <option>PP</option><option>P</option><option>M</option>
 <option>G</option><option>GG</option><option>XG</option>
 </select>
-<input type="number" min="1" max="10" value="1" id="qtd${nome}">
+<input type="number" min="1" value="1" id="qtd${nome}">
 <br>
-<button class="add-btn" onclick="adicionar('${nome}',${preco})">Comprar</button>
+<button class="add-btn" onclick="adicionar('${nome}',${preco})">Adicionar</button>
 </div>`;
 }
 
-let fem = document.getElementById("femininos");
-let mascDiv = document.getElementById("masculinos");
+let fem=document.getElementById("femininos");
+let mascDiv=document.getElementById("masculinos");
 
-/* FEMININOS */
 criarProduto(fem,"Pijama Rosa Feminino Short",femShort,"pijamarosa_short2.png");
 criarProduto(fem,"Pijama Salmão Feminino Short",femShort,"pijamasalmao_short1.png");
 criarProduto(fem,"Pijama Rosa Feminino Calça",femCalca,"pijamarosa_calca1.png");
 
-/* MASCULINOS */
 criarProduto(mascDiv,"Pijama Amarelo Masculino",masc,"pijamaamarelo_masculino1.png");
 criarProduto(mascDiv,"Pijama Azul Masculino",masc,"pijamaazul_masculino2.png");
 criarProduto(mascDiv,"Pijama Preto Masculino",masc,"pijamapreto_masculino1.png");
@@ -309,19 +253,31 @@ let lista=[];
 
 function adicionar(nome,preco){
 let qtd=parseInt(document.getElementById("qtd"+nome).value);
-if(qtd>10){alert("Máximo 10 unidades.");return;}
 let tam=document.getElementById("tam"+nome).value;
-total+=preco*qtd;
-lista.push(`${qtd}x ${nome} Tam ${tam}`);
-document.getElementById("itens").innerHTML+=`<p>${qtd}x ${nome} Tam ${tam}</p>`;
+
+let subtotal=preco*qtd;
+total+=subtotal;
+
+lista.push({nome,qtd,tam,preco,subtotal});
+
+document.getElementById("itens").innerHTML+=
+`<p>${qtd}x ${nome} | Tam ${tam} | R$ ${subtotal.toFixed(2)}</p>`;
+
 document.getElementById("total").innerText=total.toFixed(2);
 }
 
 function finalizarPedido(){
 if(lista.length==0){alert("Carrinho vazio");return;}
-let msg="Olá, gostaria de comprar:%0A%0A";
-lista.forEach(i=>msg+=i+"%0A");
-msg+="%0ATotal: R$ "+total.toFixed(2);
+
+let msg="Olá, gostaria de finalizar meu pedido:%0A%0A";
+
+lista.forEach(item=>{
+msg+=`${item.qtd}x ${item.nome} - Tam ${item.tam} - R$ ${item.subtotal.toFixed(2)}%0A`;
+});
+
+msg+=`%0ATotal do Pedido: R$ ${total.toFixed(2)}%0A`;
+msg+="%0AObrigada! 💙";
+
 window.open("https://wa.me/5592981232855?text="+msg);
 }
 
