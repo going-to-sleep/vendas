@@ -9,54 +9,78 @@
 
 <style>
 
-/* PALETA SONO */
+/* ================= PALETA SONO ================= */
 :root{
---cinza:#eef1f4;
+--cinza:#e9edf2;
 --azul:#3f6ea8;
 --azul-claro:#6f95c9;
 --amarelo:#f4d77b;
---rosa-bebe:#f8e9ef;
+--rosa-bebe:#f6e8ee;
 --branco:#ffffff;
 }
 
+/* ================= FUNDO ================= */
 body{
 margin:0;
 font-family:'Poppins', sans-serif;
-background:var(--cinza);
+background: url('capa1.png') center center / cover no-repeat fixed;
 }
 
+/* Overlay para profundidade */
 .overlay{
-background:linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(238,241,244,0.95));
+background:rgba(233,237,242,0.88);
+min-height:100vh;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header{
 text-align:center;
-padding:100px 20px 40px;
+padding:120px 20px 60px;
 }
 
-/* TÍTULO AZUL COM SOMBRA */
+/* Título azul com sombra */
 header h1{
 font-family:'Great Vibes', cursive;
 font-size:110px;
+position:relative;
+display:inline-block;
 color:var(--azul);
-text-shadow: 3px 3px 10px rgba(63,110,168,0.4);
+text-shadow:4px 4px 15px rgba(63,110,168,0.5);
+overflow:hidden;
 }
 
-/* TEXTO POÉTICO */
+/* Faixa branca animada */
+header h1::after{
+content:"Going to Sleep";
+position:absolute;
+left:0;
+top:0;
+width:100%;
+background:linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.95) 50%, transparent 60%);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:brilho 4s infinite;
+}
+
+@keyframes brilho{
+0%{transform:translateX(-100%);}
+100%{transform:translateX(100%);}
+}
+
+/* Texto poético */
 .marca{
 max-width:800px;
-margin:0 auto 50px;
+margin:0 auto 60px;
 font-size:18px;
-color:#555;
+color:#444;
 line-height:1.9;
 background:var(--rosa-bebe);
-padding:30px;
-border-radius:20px;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
+padding:40px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,0.1);
 }
 
-/* BOTÕES */
+/* Botão */
 .btn{
 display:inline-block;
 padding:12px 35px;
@@ -72,9 +96,9 @@ transition:0.3s;
 background:var(--azul-claro);
 }
 
-/* VITRINE */
+/* ================= VITRINE ================= */
 .vitrine{
-padding:60px 8%;
+padding:80px 8%;
 }
 
 .vitrine h2{
@@ -95,7 +119,12 @@ background:var(--branco);
 border-radius:20px;
 padding:20px;
 text-align:center;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
+box-shadow:0 12px 30px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
 }
 
 .card h3{
@@ -113,15 +142,35 @@ padding:10px 20px;
 border-radius:20px;
 color:#fff;
 cursor:pointer;
-font-weight:600;
 margin-top:10px;
 }
 
-.add-btn:hover{
-background:var(--azul-claro);
+select,input{
+margin-top:10px;
+padding:6px;
 }
 
-/* CARRINHO */
+/* ================= ENDEREÇO ================= */
+.mapa{
+margin-top:100px;
+text-align:center;
+}
+
+.mapa h2{
+font-family:'Great Vibes', cursive;
+font-size:60px;
+color:var(--azul);
+}
+
+iframe{
+width:90%;
+height:350px;
+border-radius:20px;
+border:none;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ================= CARRINHO ================= */
 .carrinho{
 position:fixed;
 right:-340px;
@@ -129,9 +178,11 @@ top:0;
 width:320px;
 height:100%;
 background:#fff;
-box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+box-shadow:-5px 0 25px rgba(0,0,0,0.3);
 padding:20px;
 transition:0.4s;
+z-index:999;
+overflow-y:auto;
 }
 
 .carrinho.aberto{
@@ -148,6 +199,7 @@ padding:12px;
 cursor:pointer;
 border-radius:10px 0 0 10px;
 font-weight:600;
+z-index:1000;
 }
 
 .finalizar{
@@ -162,11 +214,10 @@ cursor:pointer;
 border-radius:10px;
 }
 
-/* FOOTER */
 footer{
 text-align:center;
 padding:40px;
-color:#777;
+color:#555;
 }
 
 </style>
@@ -189,7 +240,6 @@ Durma só de Going to Sleep e dê outro a quem te ama.<br><br>
 </div>
 
 <a href="https://instagram.com/goingtosleeproupasdedormir" target="_blank" class="btn">Instagram</a>
-
 </header>
 
 <section class="vitrine">
@@ -199,6 +249,14 @@ Durma só de Going to Sleep e dê outro a quem te ama.<br><br>
 <h2 style="margin-top:80px;">Masculino</h2>
 <div class="produtos" id="masculinos"></div>
 </section>
+
+<div class="mapa">
+<h2>Nosso Endereço</h2>
+<p><strong>Av. Efigênio Sales 2240, Centro Comercial Mundi</strong></p>
+<iframe src="https://www.google.com/maps?q=Av.+Efigênio+Sales+2240,+Centro+Comercial+Mundi&output=embed"></iframe>
+<br><br>
+<a href="https://maps.app.goo.gl/ZbegsTnqeEU6DqQN7" target="_blank" class="btn">Ver no Google Maps</a>
+</div>
 
 <footer>
 © 2026 Going to Sleep - Conforto que abraça seu sono.
@@ -217,6 +275,7 @@ Durma só de Going to Sleep e dê outro a quem te ama.<br><br>
 
 <script>
 
+/* ================= PRODUTOS ================= */
 let masc=109.50;
 let femShort=119.90;
 let femCalca=139.50;
@@ -231,7 +290,7 @@ container.innerHTML+=`
 <option>PP</option><option>P</option><option>M</option>
 <option>G</option><option>GG</option><option>XG</option>
 </select>
-<input type="number" min="1" value="1" id="qtd${nome}">
+<input type="number" min="1" max="10" value="1" id="qtd${nome}">
 <br>
 <button class="add-btn" onclick="adicionar('${nome}',${preco})">Adicionar</button>
 </div>`;
@@ -248,6 +307,7 @@ criarProduto(mascDiv,"Pijama Amarelo Masculino",masc,"pijamaamarelo_masculino1.p
 criarProduto(mascDiv,"Pijama Azul Masculino",masc,"pijamaazul_masculino2.png");
 criarProduto(mascDiv,"Pijama Preto Masculino",masc,"pijamapreto_masculino1.png");
 
+/* ================= CARRINHO ================= */
 let total=0;
 let lista=[];
 
@@ -255,10 +315,12 @@ function adicionar(nome,preco){
 let qtd=parseInt(document.getElementById("qtd"+nome).value);
 let tam=document.getElementById("tam"+nome).value;
 
+if(qtd<1 || qtd>10){alert("Quantidade inválida (1 a 10).");return;}
+
 let subtotal=preco*qtd;
 total+=subtotal;
 
-lista.push({nome,qtd,tam,preco,subtotal});
+lista.push({nome,qtd,tam,subtotal});
 
 document.getElementById("itens").innerHTML+=
 `<p>${qtd}x ${nome} | Tam ${tam} | R$ ${subtotal.toFixed(2)}</p>`;
