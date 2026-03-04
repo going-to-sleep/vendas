@@ -10,30 +10,27 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #fdeaf2; /* rosa suave */
+    background: url('capa1.png') center center / cover no-repeat fixed;
+    background-color: #fdeaf2;
 }
 
-/* ===== CAPA ===== */
-.capa {
-    width: 100%;
-    height: 100vh;
-    background: url('capa1.png') center/contain no-repeat;
-    background-color: #ffffff;
+/* SOBREPOSIÇÃO SUAVE */
+.overlay {
+    background-color: rgba(253, 234, 242, 0.95);
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header {
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px 10px 20px;
 }
 
 header h1 {
-    font-size: 32px;
+    font-size: 38px;
     color: #c86fa1;
-    margin-bottom: 10px;
 }
 
-/* ===== BOTÕES ===== */
+/* BOTÕES */
 .botoes {
     text-align: center;
     margin-bottom: 30px;
@@ -47,44 +44,44 @@ header h1 {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: 0.3s;
 }
 
-.instagram {
-    background-color: #8a2be2; /* roxo */
+.instagram { background-color: #8a2be2; }
+
+/* PUBLICIDADE */
+.publicidade {
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
 }
 
-.whatsapp {
-    background-color: #90ee90; /* verde light */
-    color: #000;
+.publicidade video {
+    width: 80%;
+    border-radius: 15px;
 }
 
-.btn:hover {
-    opacity: 0.8;
-}
-
-/* ===== VITRINE ===== */
+/* VITRINE */
 .vitrine {
-    padding: 40px 10%;
+    padding: 40px 8%;
 }
 
 .vitrine h2 {
     color: #b85d8e;
-    margin-bottom: 20px;
+    text-align: center;
 }
 
 .produtos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 25px;
 }
 
 .card {
-    background: #ffffff;
+    background: #fff;
     border-radius: 15px;
     padding: 15px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .card img {
@@ -92,89 +89,184 @@ header h1 {
     border-radius: 10px;
 }
 
-.preco {
-    font-size: 18px;
-    color: #444;
-    font-weight: bold;
-    margin-top: 10px;
+.card select, .card input {
+    margin: 8px 0;
+    padding: 5px;
 }
 
-/* ===== RODAPÉ ===== */
-footer {
-    text-align: center;
+.add-btn {
+    background-color: #c86fa1;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* CARRINHO */
+.carrinho {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -3px 0 10px rgba(0,0,0,0.2);
     padding: 20px;
-    background-color: #f7c8dd;
-    margin-top: 40px;
+    overflow-y: auto;
+}
+
+.total {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.finalizar {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #90ee90;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 </style>
 </head>
 
 <body>
-
-<div class="capa"></div>
+<div class="overlay">
 
 <header>
     <h1>Going to Sleep</h1>
 </header>
 
 <div class="botoes">
-    <a href="https://instagram.com/goingtosleeproupasdedormir" target="_blank" class="btn instagram">
-        Instagram
-    </a>
+    <a href="https://instagram.com/goingtosleeproupasdedormir" target="_blank" class="btn instagram">Instagram</a>
+</div>
 
-    <a href="https://wa.me/5592981232855" target="_blank" class="btn whatsapp">
-        WhatsApp
-    </a>
+<!-- PUBLICIDADE -->
+<div class="publicidade">
+    <video controls autoplay muted loop>
+        <source src="videopijama1.mp4" type="video/mp4">
+    </video>
 </div>
 
 <section class="vitrine">
+<h2>Nossa Coleção</h2>
 
-    <h2>Pijamas Lisos</h2>
+<div class="produtos">
 
-    <div class="produtos">
+<!-- MASCULINOS -->
+<script>
+function criarProduto(nome, preco, imagem, id){
+    document.write(`
+    <div class="card">
+        <img src="${imagem}">
+        <h3>${nome}</h3>
+        <p>Lindo pijama ${nome.toLowerCase()}, 100% algodão, confortável, macio e perfeito para noites tranquilas.</p>
+        <p><strong>R$ ${preco.toFixed(2)}</strong></p>
 
-        <div class="card">
-            <img src="pijamarosa_mulher_liso1.png" alt="Pijama Feminino Liso">
-            <h3>Pijama Feminino Liso</h3>
-            <p class="preco">R$ 120,00</p>
-        </div>
+        <select id="tam${id}">
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+            <option value="XG">XG</option>
+        </select>
 
-        <div class="card">
-            <img src="pijamaazul_homem_liso1.png" alt="Pijama Masculino Liso">
-            <h3>Pijama Masculino Liso</h3>
-            <p class="preco">R$ 109,00</p>
-        </div>
-
+        <input type="number" min="1" max="10" value="1" id="qtd${id}">
+        <br>
+        <button class="add-btn" onclick="adicionar('${nome}',${preco},'tam${id}','qtd${id}')">
+            Comprar
+        </button>
     </div>
+    `);
+}
+</script>
 
+<script>
+/* PREÇOS */
+let masc = 109.50;
+let femShort = 119.90;
+let femCalca = 139.50;
+
+/* LISTA PRODUTOS */
+criarProduto("Pijama Amarelo Masculino", masc, "pijamaamarelo_masculino1.png",1);
+criarProduto("Pijama Azul Masculino", masc, "pijamaazul_masculino2.png",2);
+criarProduto("Pijama Preto Masculino", masc, "pijamapreto_masculino1.png",3);
+criarProduto("Pijama Azul Masculino Liso", masc, "pijamaazul_homem_liso1.png",4);
+
+criarProduto("Pijama Rosa Feminino Short", femShort, "pijamarosa_short2.png",5);
+criarProduto("Pijama Rosa Feminino Short", femShort, "pijamarosa_short3.png",6);
+criarProduto("Pijama Rosa Feminino Short", femShort, "pijamarosa_short4.png",7);
+criarProduto("Pijama Salmão Feminino Short", femShort, "pijamasalmao_short1.png",8);
+
+criarProduto("Pijama Rosa Feminino Calça", femCalca, "pijamarosa_calca1.png",9);
+criarProduto("Pijama Rosa Feminino Liso", femCalca, "pijamarosa_mulher_liso1.png",10);
+criarProduto("Pijama Amarelo Feminino Short", femShort, "pijamaamarelo_short1.png",11);
+criarProduto("Pijama Amarelo Feminino Short", femShort, "pijamaamarelo_short2.png",12);
+criarProduto("Pijama Azul Feminino Short", femShort, "pijamaazul_short1.png",13);
+</script>
+
+</div>
 </section>
 
-<section class="vitrine">
+</div>
 
-    <h2>Pijamas com Estampa</h2>
+<!-- CARRINHO -->
+<div class="carrinho">
+<h3>Seu Carrinho</h3>
+<div id="itens"></div>
+<div class="total">Total: R$ <span id="total">0.00</span></div>
+<button class="finalizar" onclick="finalizarPedido()">Finalizar no WhatsApp</button>
+</div>
 
-    <div class="produtos">
+<script>
 
-        <!-- ESPAÇO PARA VOCÊ ADICIONAR NOVAS IMAGENS -->
+let total = 0;
+let lista = [];
 
-        <!-- 
-        Modelo para adicionar novos produtos:
+function adicionar(nome, preco, tamId, qtdId){
 
-        <div class="card">
-            <img src="nome-da-imagem.png" alt="Pijama Estampado">
-            <h3>Pijama Feminino Estampado</h3>
-            <p class="preco">R$ 129,00</p>
-        </div>
-        -->
+    let qtd = parseInt(document.getElementById(qtdId).value);
+    if(qtd > 10){
+        alert("Limite máximo de 10 unidades por produto.");
+        return;
+    }
 
-    </div>
+    let tamanho = document.getElementById(tamId).value;
+    let subtotal = preco * qtd;
+    total += subtotal;
 
-</section>
+    let item = `${qtd}x ${nome} - Tam ${tamanho}`;
+    lista.push(item);
 
-<footer>
-    © 2026 Going to Sleep - Todos os direitos reservados
-</footer>
+    document.getElementById("itens").innerHTML += `<p>${item}</p>`;
+    document.getElementById("total").innerText = total.toFixed(2);
+}
+
+function finalizarPedido(){
+
+    if(lista.length == 0){
+        alert("Seu carrinho está vazio.");
+        return;
+    }
+
+    let mensagem = "Olá, gostaria de comprar:%0A%0A";
+
+    lista.forEach(item => {
+        mensagem += item + "%0A";
+    });
+
+    mensagem += "%0ATotal: R$ " + total.toFixed(2);
+
+    window.open("https://wa.me/5592981232855?text=" + mensagem);
+}
+
+</script>
 
 </body>
 </html>
