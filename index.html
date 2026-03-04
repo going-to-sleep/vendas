@@ -5,131 +5,175 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Going to Sleep</title>
 
+<!-- FONTE MODERNA -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
     background: url('capa1.png') center center / cover no-repeat fixed;
-    background-color: #fdeaf2;
 }
 
-/* SOBREPOSIÇÃO SUAVE */
-.overlay {
-    background-color: rgba(253, 234, 242, 0.95);
+/* FUNDO SUAVE */
+.overlay{
+    background: rgba(255,240,247,0.92);
 }
 
 /* HEADER */
-header {
-    text-align: center;
-    padding: 40px 20px 10px 20px;
+header{
+    text-align:center;
+    padding:60px 20px 20px;
 }
 
-header h1 {
-    font-size: 38px;
-    color: #c86fa1;
+header h1{
+    font-size:48px;
+    background: linear-gradient(45deg,#ff1493,#ff69b4,#ff85c1);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    font-weight:700;
+}
+
+/* TEXTO MARCA */
+.marca{
+    max-width:800px;
+    margin:0 auto 40px;
+    text-align:center;
+    font-size:16px;
+    color:#555;
+    line-height:1.6;
 }
 
 /* BOTÕES */
-.botoes {
-    text-align: center;
-    margin-bottom: 30px;
+.btn{
+    display:inline-block;
+    padding:12px 30px;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff1493,#ff69b4);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    margin-top:15px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    margin: 10px;
-    border-radius: 30px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+/* VIDEO */
+.publicidade{
+    text-align:center;
+    margin:40px 0;
 }
-
-.instagram { background-color: #8a2be2; }
-
-/* PUBLICIDADE */
-.publicidade {
-    width: 100%;
-    text-align: center;
-    margin: 30px 0;
-}
-
-.publicidade video {
-    width: 80%;
-    border-radius: 15px;
+.publicidade video{
+    width:80%;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
 /* VITRINE */
-.vitrine {
-    padding: 40px 8%;
+.vitrine{
+    padding:50px 8%;
+}
+.vitrine h2{
+    text-align:center;
+    color:#ff1493;
+    margin-bottom:40px;
 }
 
-.vitrine h2 {
-    color: #b85d8e;
-    text-align: center;
+.produtos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:35px;
 }
 
-.produtos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+.card{
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(255,20,147,0.15);
+    transition:0.3s;
+}
+.card:hover{
+    transform:translateY(-5px);
 }
 
-.card {
-    background: #fff;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+.card img{
+    width:100%;
+    border-radius:15px;
 }
 
-.card img {
-    width: 100%;
-    border-radius: 10px;
+.card h3{
+    color:#ff1493;
 }
 
-.card select, .card input {
-    margin: 8px 0;
-    padding: 5px;
+.add-btn{
+    background:linear-gradient(45deg,#ff1493,#ff69b4);
+    border:none;
+    padding:10px 20px;
+    border-radius:20px;
+    color:#fff;
+    cursor:pointer;
+    font-weight:600;
 }
 
-.add-btn {
-    background-color: #c86fa1;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
+/* CARRINHO DESLIZANTE */
+.carrinho{
+    position:fixed;
+    right:-320px;
+    top:0;
+    width:300px;
+    height:100%;
+    background:#fff;
+    box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+    padding:20px;
+    transition:0.4s;
+    z-index:999;
 }
 
-/* CARRINHO */
-.carrinho {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 300px;
-    height: 100%;
-    background: white;
-    box-shadow: -3px 0 10px rgba(0,0,0,0.2);
-    padding: 20px;
-    overflow-y: auto;
+.carrinho.aberto{
+    right:0;
 }
 
-.total {
-    font-weight: bold;
-    margin-top: 20px;
+.toggle-carrinho{
+    position:fixed;
+    right:0;
+    top:50%;
+    background:#ff1493;
+    color:#fff;
+    padding:12px;
+    cursor:pointer;
+    border-radius:10px 0 0 10px;
+    font-weight:600;
+    z-index:1000;
 }
 
-.finalizar {
-    margin-top: 20px;
-    width: 100%;
-    padding: 12px;
-    background-color: #90ee90;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
+.finalizar{
+    width:100%;
+    padding:12px;
+    background:#25d366;
+    border:none;
+    color:#fff;
+    font-weight:600;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+/* MAPA */
+.mapa{
+    margin-top:60px;
+    text-align:center;
+}
+
+iframe{
+    width:90%;
+    height:300px;
+    border-radius:20px;
+    border:none;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#555;
 }
 
 </style>
@@ -140,13 +184,16 @@ header h1 {
 
 <header>
     <h1>Going to Sleep</h1>
+    <div class="marca">
+        Going to Sleep é uma loja especializada em roupas de dormir desenvolvidas para proporcionar máximo conforto e qualidade de vida. 
+        Nossos pijamas são feitos em 100% algodão, pensados para garantir um sono profundo, leve e sem interferências das vestimentas. 
+        Além de perfeitos para dormir, também são ideais para usar dentro de casa, unindo estilo, maciez e preço acessível. 
+        Trabalhamos com tamanhos para todas as idades e gostos, sempre priorizando conforto, elegância e bem-estar.
+    </div>
+
+    <a href="https://instagram.com/goingtosleeproupasdedormir" target="_blank" class="btn">Instagram</a>
 </header>
 
-<div class="botoes">
-    <a href="https://instagram.com/goingtosleeproupasdedormir" target="_blank" class="btn instagram">Instagram</a>
-</div>
-
-<!-- PUBLICIDADE -->
 <div class="publicidade">
     <video controls autoplay muted loop>
         <source src="videopijama1.mp4" type="video/mp4">
@@ -154,116 +201,93 @@ header h1 {
 </div>
 
 <section class="vitrine">
-<h2>Nossa Coleção</h2>
+<h2>Feminino</h2>
+<div class="produtos" id="femininos"></div>
 
-<div class="produtos">
-
-<!-- MASCULINOS -->
-<script>
-function criarProduto(nome, preco, imagem, id){
-    document.write(`
-    <div class="card">
-        <img src="${imagem}">
-        <h3>${nome}</h3>
-        <p>Lindo pijama ${nome.toLowerCase()}, 100% algodão, confortável, macio e perfeito para noites tranquilas.</p>
-        <p><strong>R$ ${preco.toFixed(2)}</strong></p>
-
-        <select id="tam${id}">
-            <option value="PP">PP</option>
-            <option value="P">P</option>
-            <option value="M">M</option>
-            <option value="G">G</option>
-            <option value="GG">GG</option>
-            <option value="XG">XG</option>
-        </select>
-
-        <input type="number" min="1" max="10" value="1" id="qtd${id}">
-        <br>
-        <button class="add-btn" onclick="adicionar('${nome}',${preco},'tam${id}','qtd${id}')">
-            Comprar
-        </button>
-    </div>
-    `);
-}
-</script>
-
-<script>
-/* PREÇOS */
-let masc = 109.50;
-let femShort = 119.90;
-let femCalca = 139.50;
-
-/* LISTA PRODUTOS */
-criarProduto("Pijama Amarelo Masculino", masc, "pijamaamarelo_masculino1.png",1);
-criarProduto("Pijama Azul Masculino", masc, "pijamaazul_masculino2.png",2);
-criarProduto("Pijama Preto Masculino", masc, "pijamapreto_masculino1.png",3);
-criarProduto("Pijama Azul Masculino Liso", masc, "pijamaazul_homem_liso1.png",4);
-
-criarProduto("Pijama Rosa Feminino Short", femShort, "pijamarosa_short2.png",5);
-criarProduto("Pijama Rosa Feminino Short", femShort, "pijamarosa_short3.png",6);
-criarProduto("Pijama Rosa Feminino Short", femShort, "pijamarosa_short4.png",7);
-criarProduto("Pijama Salmão Feminino Short", femShort, "pijamasalmao_short1.png",8);
-
-criarProduto("Pijama Rosa Feminino Calça", femCalca, "pijamarosa_calca1.png",9);
-criarProduto("Pijama Rosa Feminino Liso", femCalca, "pijamarosa_mulher_liso1.png",10);
-criarProduto("Pijama Amarelo Feminino Short", femShort, "pijamaamarelo_short1.png",11);
-criarProduto("Pijama Amarelo Feminino Short", femShort, "pijamaamarelo_short2.png",12);
-criarProduto("Pijama Azul Feminino Short", femShort, "pijamaazul_short1.png",13);
-</script>
-
-</div>
+<h2 style="margin-top:60px;">Masculino</h2>
+<div class="produtos" id="masculinos"></div>
 </section>
 
+<div class="mapa">
+    <h2 style="color:#ff1493;">Nosso Endereço</h2>
+    <p>Av. Efigênio Sales 2240, Centro Comercial Mundi</p>
+    <iframe src="https://share.google/n9GB9DgEo1uRGeTk6"></iframe>
 </div>
 
-<!-- CARRINHO -->
-<div class="carrinho">
+<footer>
+    © 2026 Going to Sleep - Conforto que abraça seu sono.
+</footer>
+
+</div>
+
+<div class="toggle-carrinho" onclick="toggleCarrinho()">Carrinho</div>
+
+<div class="carrinho" id="carrinho">
 <h3>Seu Carrinho</h3>
 <div id="itens"></div>
-<div class="total">Total: R$ <span id="total">0.00</span></div>
+<p><strong>Total: R$ <span id="total">0.00</span></strong></p>
 <button class="finalizar" onclick="finalizarPedido()">Finalizar no WhatsApp</button>
 </div>
 
 <script>
 
-let total = 0;
-let lista = [];
+let masc = 109.50;
+let femShort = 119.90;
+let femCalca = 139.50;
 
-function adicionar(nome, preco, tamId, qtdId){
+function criarProduto(container,nome,preco,img){
+container.innerHTML += `
+<div class="card">
+<img src="${img}">
+<h3>${nome}</h3>
+<p>Lindo pijama ${nome.toLowerCase()}, 100% algodão, confortável e perfeito para noites tranquilas.</p>
+<p><strong>R$ ${preco.toFixed(2)}</strong></p>
+<select id="tam${nome}">
+<option>PP</option><option>P</option><option>M</option>
+<option>G</option><option>GG</option><option>XG</option>
+</select>
+<input type="number" min="1" max="10" value="1" id="qtd${nome}">
+<br><br>
+<button class="add-btn" onclick="adicionar('${nome}',${preco})">Comprar</button>
+</div>`;
+}
 
-    let qtd = parseInt(document.getElementById(qtdId).value);
-    if(qtd > 10){
-        alert("Limite máximo de 10 unidades por produto.");
-        return;
-    }
+let fem = document.getElementById("femininos");
+let mascDiv = document.getElementById("masculinos");
 
-    let tamanho = document.getElementById(tamId).value;
-    let subtotal = preco * qtd;
-    total += subtotal;
+/* FEMININOS */
+criarProduto(fem,"Pijama Rosa Feminino Short",femShort,"pijamarosa_short2.png");
+criarProduto(fem,"Pijama Salmão Feminino Short",femShort,"pijamasalmao_short1.png");
+criarProduto(fem,"Pijama Rosa Feminino Calça",femCalca,"pijamarosa_calca1.png");
 
-    let item = `${qtd}x ${nome} - Tam ${tamanho}`;
-    lista.push(item);
+/* MASCULINOS */
+criarProduto(mascDiv,"Pijama Amarelo Masculino",masc,"pijamaamarelo_masculino1.png");
+criarProduto(mascDiv,"Pijama Azul Masculino",masc,"pijamaazul_masculino2.png");
+criarProduto(mascDiv,"Pijama Preto Masculino",masc,"pijamapreto_masculino1.png");
 
-    document.getElementById("itens").innerHTML += `<p>${item}</p>`;
-    document.getElementById("total").innerText = total.toFixed(2);
+let total=0;
+let lista=[];
+
+function adicionar(nome,preco){
+let qtd=parseInt(document.getElementById("qtd"+nome).value);
+if(qtd>10){alert("Máximo 10 unidades.");return;}
+let tam=document.getElementById("tam"+nome).value;
+total+=preco*qtd;
+lista.push(`${qtd}x ${nome} Tam ${tam}`);
+document.getElementById("itens").innerHTML+=`<p>${qtd}x ${nome} Tam ${tam}</p>`;
+document.getElementById("total").innerText=total.toFixed(2);
 }
 
 function finalizarPedido(){
+if(lista.length==0){alert("Carrinho vazio");return;}
+let msg="Olá, gostaria de comprar:%0A%0A";
+lista.forEach(i=>msg+=i+"%0A");
+msg+="%0ATotal: R$ "+total.toFixed(2);
+window.open("https://wa.me/5592981232855?text="+msg);
+}
 
-    if(lista.length == 0){
-        alert("Seu carrinho está vazio.");
-        return;
-    }
-
-    let mensagem = "Olá, gostaria de comprar:%0A%0A";
-
-    lista.forEach(item => {
-        mensagem += item + "%0A";
-    });
-
-    mensagem += "%0ATotal: R$ " + total.toFixed(2);
-
-    window.open("https://wa.me/5592981232855?text=" + mensagem);
+function toggleCarrinho(){
+document.getElementById("carrinho").classList.toggle("aberto");
 }
 
 </script>
