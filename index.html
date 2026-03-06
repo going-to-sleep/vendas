@@ -218,6 +218,18 @@ Durma só de Going to Sleep e dê outro a quem te ama.<br><br>
 
 </section>
 
+<div class="mapa">
+<h2>Nosso Endereço</h2>
+<p><strong>Av. Efigênio Sales 2240, Centro Comercial Mundi</strong></p>
+<iframe src="https://www.google.com/maps?q=Av.+Efigênio+Sales+2240,+Centro+Comercial+Mundi&output=embed"></iframe>
+<br><br>
+<a href="https://maps.app.goo.gl/ZbegsTnqeEU6DqQN7" target="_blank" class="btn">Ver no Google Maps</a>
+</div>
+
+<footer>
+© 2026 Going to Sleep - Conforto que abraça seu sono.
+</footer>
+
 </div>
 
 <div class="toggle-carrinho" onclick="toggleCarrinho()">Carrinho</div>
@@ -273,14 +285,38 @@ let fem=document.getElementById("femininos");
 let alc=document.getElementById("alcinha_prod");
 let masc=document.getElementById("masculinos");
 
-criarProduto(fem,"Pijama Rosa Feminino",89.99,"pijamarosa_short2.png");
-criarProduto(fem,"Pijama Salmão Feminino",89.99,"pijamasalmao_short1.png");
+/* FEMININO */
+criarProduto(fem,"Pijama Rosa Feminino Short",89.99,"pijamarosa_short2.png");
+criarProduto(fem,"Pijama Salmão Feminino Short",89.99,"pijamasalmao_short1.png");
+criarProduto(fem,"Pijama Rosa Feminino Calça",119.99,"pijamarosa_calca1.png");
 
-criarProduto(alc,"Pijama Alcinha Xadrez",69.99,"pijamaxadrez_calcinha1.png");
-criarProduto(alc,"Pijama Alcinha Lacinho",69.99,"pijamalacinho_alcinha1.png");
+criarProduto(fem,"Pijama Azul Conjunto Short",89.99,"pijamaazul_short1.png");
+criarProduto(fem,"Pijama Amarelo Conjunto Short",119.99,"pijamaamarelo_short1.png");
 
-criarProduto(masc,"Pijama Masculino Azul",89.99,"pijamaazul_masculino2.png");
-criarProduto(masc,"Pijama Masculino Preto",89.99,"pijamapreto_masculino1.png");
+
+/* AMERICANO */
+criarProduto(
+document.getElementById("americano_prod"),
+"Pijama Rosa Americano Short",
+89.99,
+"pijamarosa_mulher_liso1.png"
+);
+
+
+/* ALCINHA */
+criarProduto(alc,"Pijama Xadrez de Alcinha",69.99,"pijamaxadrez_calcinha1.png");
+criarProduto(alc,"Pijama de Alcinha Lacinho 1",69.99,"pijamalacinho_alcinha1.png");
+criarProduto(alc,"Pijama de Alcinha Branco 1",69.99,"pijamabranco_alcinha1.png");
+
+criarProduto(alc,"Pijama Hello Kitty de Alcinha",69.99,"pijamahellokitty_alcinha1.png");
+criarProduto(alc,"Pijama de Alcinha Lacinho 2",69.99,"pijamalacinho_alcinha2.png");
+criarProduto(alc,"Pijama de Alcinha Branco 2",69.99,"pijamabranco_alcinha1.png");
+
+
+/* MASCULINO */
+criarProduto(masc,"Pijama Amarelo Masculino",89.99,"pijamaamarelo_masculino1.png");
+criarProduto(masc,"Pijama Azul Masculino",89.99,"pijamaazul_masculino2.png");
+criarProduto(masc,"Pijama Preto Masculino",89.99,"pijamapreto_masculino1.png");
 
 let total=0;
 let lista=[];
