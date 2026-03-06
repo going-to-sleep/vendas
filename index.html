@@ -279,6 +279,7 @@ Durma só de Going to Sleep e dê outro a quem te ama.<br><br>
 let masc=89.99;
 let femShort=89.99;
 let femCalca=119.99;
+let femalci=69.99;  
 
 function criarProduto(container,nome,preco,img){
 container.innerHTML+=`
@@ -298,6 +299,7 @@ container.innerHTML+=`
 
 let fem=document.getElementById("femininos");
 let mascDiv=document.getElementById("masculinos");
+let femalci=document.getElementById("Alcinha");
 
 criarProduto(fem,"Pijama Rosa Feminino Short",femShort,"pijamarosa_short2.png");
 criarProduto(fem,"Pijama Salmão Feminino Short",femShort,"pijamasalmao_short1.png");
@@ -306,6 +308,14 @@ criarProduto(fem,"Pijama Rosa Feminino Calça",femCalca,"pijamarosa_calca1.png")
 criarProduto(fem,"Pijama Rosa Americano Short",femShort,"pijamarosa_mulher_liso1.png");
 criarProduto(fem,"Pijama Azul Conjunto Short",femShort,"pijamaazul_short1.png");
 criarProduto(fem,"Pijama Amarelo Conjunto Short",femCalca,"pijamaamarelo_short1.png");  
+
+criarProduto(femalci,"Pijama Xadrez de Alcinha",femalci,"pijamaxadrez_alcinha1.png");
+criarProduto(femalci,"Pijama de Alcinha Lacinho ",femalci,"pijamalacinho_alcinha1.png");
+criarProduto(femalci,"Pijama de Alcinha Branco",femalci,"pijamabranco_alcinha1.png"); 
+
+criarProduto(femalci,"Pijama Hello Kitty de Alcinha",femalci,"pijamaxadrez_alcinha1.png");
+criarProduto(femalci,"Pijama de Alcinha Lacinho ",femalci,"pijamalacinho_alcinha2.png");
+criarProduto(femalci,"Pijama de Alcinha Branco",femalci,"pijamabranco_alcinha1.png"); 
 
 criarProduto(mascDiv,"Pijama Amarelo Masculino",masc,"pijamaamarelo_masculino1.png");
 criarProduto(mascDiv,"Pijama Azul Masculino",masc,"pijamaazul_masculino2.png");
